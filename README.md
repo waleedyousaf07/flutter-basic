@@ -47,4 +47,29 @@ Flutter has alot of built in widgets like
 
 ## Dart
 
-A programming language developed by google
+A programming language developed by google. Everything initiates from a `main` method like java
+
+    void main(List<String> args) {
+        print('hello');
+    }
+
+### Basic Concepts
+
+#### Data Types
+
+Variables are statically typed means types cant be changed later on.
+
+     int age = 30;
+    String name = 'Batman';
+    bool isNight = false;
+    // name = 23; // Cant change type
+    name = 'Bruce Wayne'; // Can re define
+    print(name); // 'Bruce Wayne'
+    print(age); //23
+    print(isNight); // false
+
+ Dart also comes with a different data type called dynamic which behaves like variables like in JS so we can change it later
+
+    dynamic skills = 'Fly, Gadgets';
+    skills = ['Fly', 'Gadgets'];
+    print(skills); // ['Fly', 'Gadgets']
