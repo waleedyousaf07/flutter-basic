@@ -6,8 +6,15 @@ void main() {
   ));
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int tier = 8;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +24,7 @@ class Home extends StatelessWidget {
         title: const Text('BAT Card'),
         centerTitle: true,
         backgroundColor: Colors.grey[850],
-        elevation: 0,
+        elevation: 8,
       ),
 
       // Widget: Expanded
@@ -61,7 +68,7 @@ class Home extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              'Top',
+              '$tier',
               style: TextStyle(
                   color: Colors.amberAccent[200],
                   letterSpacing: 2,
@@ -88,6 +95,17 @@ class Home extends StatelessWidget {
             )
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {
+          setState(
+            () {
+              tier += 1;
+            },
+          )
+        },
+        backgroundColor: Colors.grey[800],
+        child: const Icon(Icons.add),
       ),
     );
   }
