@@ -1,7 +1,13 @@
 import 'package:dart_basics/dart_basics.dart' as dart_basics;
 
 void main(List<String> args) {
-  printFiveHellos();
+  maps();
+}
+
+// ------------Map ------------ //
+void maps() {
+  Map hero = {'name': 'Batman', 'realname': 'Bruce'};
+  print(hero['name']);
 }
 
 // ------------Main Function------------ //

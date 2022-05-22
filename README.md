@@ -157,3 +157,65 @@ Like other programming languages they are like a blue print for the objects. We 
     print(secretSuperHero.strength);
     secretSuperHero.greet();
     secretSuperHero.secretPower(); // Secret Power // other objects cant use this method
+
+#### Asynchrous
+
+- Future: Its like promises in JS.
+
+        void getData() {
+            // simulate network request
+            Future.delayed(Duration(seconds: 2), () {
+            print('Batman!');
+            });
+        }
+- async await
+
+        void getData() async {
+            // simulate network request
+            await Future.delayed(Duration(seconds: 3), () {
+            print('Batman!');
+            });
+
+            // simulate network request using attr from prev API
+            Future.delayed(Duration(seconds: 2), () {
+            print('Abilities of Batman');
+            });
+        }
+
+    as we can return values from await, we can store them in variables and use them later like
+
+        void getData() async {
+            // simulate network request
+            String name = await Future.delayed(Duration(seconds: 3), () {
+            // print('Batman!');
+            return 'Batman';
+            });
+
+            // simulate network request using attr from prev API
+            String abilities = await Future.delayed(Duration(seconds: 2), () {
+            return 'Abilities of Batman';
+            });
+
+            print('$name - $abilities');
+        } 
+
+## Flutter
+
+### Stateless Widget
+
+It state doesnt change over time. Build function only runs once (Non Reactive)
+
+### Stateful Widget
+
+It state can change over time. `setState()` triggers the build function
+
+### Lifecycle (Stateful Widget)
+
+- initState()
+    - Called only once when the widget is created
+    - Subscribe to streams or any object that could change our widget data
+- Build()
+    - Builds the widget tree
+    - A build is triggered every time we use setState()
+- Dispose()
+    - When the widget/state object is removed
