@@ -9,6 +9,7 @@ class WorldTime {
   late String time;
   late String flag;
   late String url;
+  late bool isDayTime;
 
   WorldTime({
     required this.location,
@@ -17,6 +18,8 @@ class WorldTime {
   });
 
   Future<void> getTime() async {
+    await Future.delayed(Duration(seconds: 3), () {});
+
     try {
       Response response =
           await get(Uri.parse('http://worldtimeapi.org/api/timezone/$url'));
@@ -33,6 +36,7 @@ class WorldTime {
       DateTime now = DateTime.parse(datetime);
       now = now.add(Duration(hours: int.parse(offset)));
 
+      isDayTime = now.hour > 6 && now.hour < 20 ? true : false;
       time = DateFormat.jm().format(now);
     } catch (e) {
       print('Caugth Error! $e');
